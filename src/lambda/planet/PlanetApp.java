@@ -18,7 +18,7 @@ public class PlanetApp {
 		planetList.add(jupiter);
 		planetList.add(uranus);
 		planetList.add(neptune);
-		
+
 		System.out.println("Has one or more rings: "
 							+ PlanetPredicates.filterPlanets(planetList, p -> p.isRinged()));
 		
