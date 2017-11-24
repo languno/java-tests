@@ -54,5 +54,9 @@ public class TerminalOperations {
         System.out.println("reduce empty stream: " + emptyIntStream.reduce(op));
         System.out.println("reduce one element stream: " + oneElemIntStream.reduce(op));
         System.out.println("reduce many element stream: " + manyElemIntStream.reduce(op));
+
+        // with intermediate operations for parallel streams
+        Stream<Integer> largeElemIntStream = Stream.of(1, 2, 3, 4, 5, 6); // accumulator gets applied
+        System.out.println("reduce with intermediate operation: " + largeElemIntStream.parallel().reduce(1, op, op));
     }
 }
