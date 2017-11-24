@@ -1,6 +1,7 @@
 package lambda.stream;
 
 import java.util.Comparator;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -32,5 +33,26 @@ public class TerminalOperations {
         System.out.println("noneMatch starts with letter: " + sup.get().noneMatch(startWithLetter));
 
         sup.get().forEach(System.out::println);
+
+        // reduction: concat
+        Stream<String> wolfStream = Stream.of("w", "o", "l", "f");
+        //String word = wolfStream.reduce("", (s, t) -> s + t);
+        String word = wolfStream.reduce("", String::concat);
+        System.out.println("reduction concatenation: " + word);
+
+        // reduction: multiply all elements
+        Stream<Integer> numSream = Stream.of(1, 2, 3, 4);
+        int mul = numSream.reduce(1, (x, y) -> x * y);
+        System.out.println("reduction multiplication: " + mul);
+
+        // now with optional. processed with empty stream, with one and many elements
+        BinaryOperator<Integer> op = (a, b) -> a * b;
+        Stream<Integer> emptyIntStream = Stream.empty(); // empty optional is returned
+        Stream<Integer> oneElemIntStream = Stream.of(1); // first element is returned, without exec accumulator
+        Stream<Integer> manyElemIntStream = Stream.of(1, 2, 3); // accumulator gets applied
+
+        System.out.println("reduce empty stream: " + emptyIntStream.reduce(op));
+        System.out.println("reduce one element stream: " + oneElemIntStream.reduce(op));
+        System.out.println("reduce many element stream: " + manyElemIntStream.reduce(op));
     }
 }
