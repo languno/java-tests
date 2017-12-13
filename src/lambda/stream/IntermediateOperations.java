@@ -1,6 +1,7 @@
 package lambda.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -34,5 +35,20 @@ public class IntermediateOperations {
         List<String> two = Arrays.asList("two", "three");
         Stream<List<String>> streamOfLists = Stream.of(zero, one, two);
         streamOfLists.flatMap(l -> l.stream()).forEach(System.out::println);
+
+        // sort
+        System.out.println("# sorted in natural order:");
+        sup.get().sorted().forEach(System.out::println);
+
+        System.out.println("# sorted in reverse natural order:");
+        sup.get().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+
+        System.out.println("# sorted by length:");
+        sup.get().sorted(Comparator.comparing(String::length)).forEach(System.out::println);
+
+        // peek element without changing the stream, useful for debugging
+        System.out.println("# peek");
+        long count = sup.get().distinct().filter(s -> s.startsWith("a")).peek(s -> System.out.print(s + ":")).count();
+        System.out.println(count);
     }
 }
