@@ -4,10 +4,14 @@ import java.nio.file.Paths;
 
 public class PathTest {
 	public static void main(String args[]) {
-		Path path = Paths.get("C:\\home\\joe\\foo");
+
+		// Windows only
+//		Path path = Paths.get("C:\\home\\joe\\foo");
 
 		// Solaris syntax
 //		Path path = Paths.get("/home/joe/foo");
+
+		Path path = Paths.get("", "file.txt").toAbsolutePath();
 
 		System.out.format("toString: %s%n", path.toString());
 		System.out.format("getFileName: %s%n", path.getFileName());
