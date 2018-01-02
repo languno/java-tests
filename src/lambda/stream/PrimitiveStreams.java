@@ -1,11 +1,9 @@
 package lambda.stream;
 
+import java.util.IntSummaryStatistics;
 import java.util.OptionalDouble;
 import java.util.Random;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class PrimitiveStreams {
     public static void main(String[] args) {
@@ -40,7 +38,13 @@ public class PrimitiveStreams {
         // map to primitive streams
         System.out.println("map stream to primitive stream");
         Stream<String> stringStream = Stream.of("apple", "orange", "banana");
-        IntStream stringInts = stringStream.peek(System.out::println    ).mapToInt(String::length);
+        IntStream stringInts = stringStream.peek(System.out::println).mapToInt(String::length);
         stringInts.forEach(System.out::println);
+
+        // summary statistics
+        IntStream ints = IntStream.of(1, 2, 3, 4);
+        IntSummaryStatistics stats = ints.summaryStatistics();
+        int range = stats.getMax() - stats.getMin();
+        System.out.println("range of " + stats.toString() + " is " + range);
     }
 }
