@@ -1,4 +1,4 @@
-package impulscounter;
+package utils.impulscounter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -9,6 +9,12 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is a small tool to parse the output of a logic analyzer.
+ * 
+ * @author Tino Ernst
+ *
+ */
 public class ImpulsCounter {
 
 	// first sample was 63 = 2.96V
