@@ -1,7 +1,12 @@
-package tests;
+package file_io;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Example use of Paths.
+ *
+ * @author Tino Ernst
+ */
 public class PathTest {
 	public static void main(String args[]) {
 

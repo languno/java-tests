@@ -1,7 +1,12 @@
-package tests;
+package date_time_API;
 
 import java.time.*;
 
+/**
+ * Some examples of the date/time and period/duration classes.
+ *
+ * @author Tino Ernst
+ */
 public class TimeInstantTest {
 	public static void main(String[] args) {
 		Instant instantNow = Instant.now();
