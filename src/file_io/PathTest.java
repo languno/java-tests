@@ -1,4 +1,5 @@
 package file_io;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -15,8 +16,9 @@ public class PathTest {
 
 		// Solaris syntax
 //		Path path = Paths.get("/home/joe/foo");
+//		Path path = FileSystems.getDefault().getPath("/","home", "joe", "foo");
 
-		Path path = Paths.get("", "file.txt").toAbsolutePath();
+		Path path = Paths.get("file.txt").toAbsolutePath();
 
 		System.out.format("toString: %s%n", path.toString());
 		System.out.format("getFileName: %s%n", path.getFileName());
