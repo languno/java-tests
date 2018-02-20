@@ -1,9 +1,12 @@
 package collection;
 
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.time.DayOfWeek;
 
 /**
  * Examples of Set interface implementations.
@@ -44,6 +47,24 @@ public class SetExamples {
 		System.out.println("LinkedHashSet: " + linkedHashSet);
 		
 		// Special-Purpose Set Implementations
+
+		/* EnumSet:
+		 *		easy iteration over enum values
+		 *		all elements of the same enum
+		 */
+		 for (DayOfWeek d : EnumSet.range(DayOfWeek.MONDAY, DayOfWeek.FRIDAY))
+		        System.out.println("DayOfWeek: " + d);
+
+		/* CopyOnWriteArraySet:
+		 * 		backed up by a copy-on-write array
+		 *  	all mutative operations, such as add, set, and remove, are implemented by making a new copy of the array
+		 *  	no locking is ever required
+		 *  	add, remove, and contains methods require time proportional to the size of the set
+		 *  	this implementation is only appropriate for sets that are rarely modified but frequently iterated
+		 */
+		 Set<String> cowSet = new CopyOnWriteArraySet<>();
+			fillSet(cowSet);
+			System.out.println("CopyOnWriteArraySet: " + cowSet);
 	}
 	
 	private static void fillSet(Set<String> set) {
