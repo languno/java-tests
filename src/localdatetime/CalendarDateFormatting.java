@@ -1,9 +1,14 @@
-package tests;
+package localdatetime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+/**
+ * Demonstrates the formatting of date and time information.
+ *
+ * @author Tino Ernst
+ */
 public class CalendarDateFormatting {
 	public static void main(String[] args) {
 		

@@ -1,5 +1,10 @@
-package tests;
+package regex;
 
+/**
+ * Demonstration of regular expressions to modify strings.
+ *
+ * @author Tino Ernst
+ */
 public class StringReplaceAllRegex {
 	public static void main(String[] args) {
 		String[] inputs = { "aabfooaabfooabfoob", "aabfooaabfooabfooa" };
